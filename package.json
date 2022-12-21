@@ -45,6 +45,8 @@
   },
   "devDependencies": {
     "@types/lodash.debounce": "^4.0.7",
-    "lodash.debounce": "^4.0.8"
+    "lodash.debounce": "^4.0.8",
+    "react-addons-update": "^15.6.3",
+    "react-router-dom": "^6.5.0"
   }
 }

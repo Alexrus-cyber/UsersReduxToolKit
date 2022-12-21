@@ -8,10 +8,12 @@ export const instance = axios.create({
     baseURL: 'http://localhost:5000/',
 })
 
-export const fetchUsers = () => async (dispatch: AppDispatch) => {
+
+
+export const fetchUsers = (page: number, limit: number,term: string) => async (dispatch: AppDispatch) => {
     try {
         dispatch(userSlice.actions.getUsersLoading)
-        const response = await instance.get<IUser[]>(`users`)
+        const response = await instance.get<IUser[]>(`users?_page=${page}&_limit=${limit}`)
         dispatch(userSlice.actions.getUsersSuccess(response.data))
     } catch (e) {
         dispatch(userSlice.actions.getUsersError(String(e)))
@@ -20,9 +22,8 @@ export const fetchUsers = () => async (dispatch: AppDispatch) => {
 
 export const deleteUsers = (id: number) => async (dispatch: AppDispatch) => {
     try {
-        dispatch(userSlice.actions.getUsersLoading)
-        await instance.delete<IUser[]>(`users/${id}`)
-        dispatch(fetchUsers());
+         await instance.delete<IUser>(`users/${id}`)
+        dispatch(userSlice.actions.deleteUser(id))
     } catch (e) {
         alert(e)
     }
@@ -31,14 +32,17 @@ export const deleteUsers = (id: number) => async (dispatch: AppDispatch) => {
 export const createUsers = (name: string, email: string, phone: string) => async (dispatch: AppDispatch) => {
     try {
         dispatch(userSlice.actions.getUsersLoading)
-        const user = {
-            name: name,
-            email: email,
-            phone: phone
-        }
-        await instance.post<IUser[]>(`users`, {name: name, email: email, phone: phone})
-        dispatch(userSlice.actions.CreateUser(user as IUser))
-        dispatch(fetchUsers());
+        const response =  await instance.post<IUser>(`users`, {name: name, email: email, phone: phone})
+        dispatch(userSlice.actions.CreateUser(response.data as IUser))
+
+    } catch (e) {
+        alert(e)
+    }
+}
+export const PutUsers = (id:number,name: string,email: string, phone: string) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await instance.put<IUser>(`users/${id}`, {name: name, email: email, phone: phone})
+        dispatch(userSlice.actions.PutUser(response.data as IUser))
     } catch (e) {
         alert(e)
     }

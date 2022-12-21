@@ -18,21 +18,45 @@
   },
   "users": [
     {
-      "id": 7,
-      "name": "Vova",
-      "email": "ewtrfadf",
-      "phone": "653634634"
+      "name": "Alexsandr",
+      "email": "email",
+      "phone": "7915195",
+      "id": 1
     },
     {
-      "name": "Vova",
-      "email": "ewtrfadf",
-      "phone": "653634634",
+      "name": "Alex",
+      "email": "helloworld@mail.ru",
+      "phone": "+741344312433",
+      "id": 4
+    },
+    {
+      "name": "Dima",
+      "email": "helloworld@mail.ru",
+      "phone": "+741344312433",
+      "id": 5
+    },
+    {
+      "name": "Dima",
+      "email": "helloworld@mail.ru",
+      "phone": "+741344312433",
+      "id": 6
+    },
+    {
+      "name": "Dima",
+      "email": "helloworld@mail.ru",
+      "phone": "+741344312433",
+      "id": 7
+    },
+    {
+      "name": "Dima",
+      "email": "helloworld@mail.ru",
+      "phone": "+741344312433",
       "id": 8
     },
     {
-      "name": "Vova",
-      "email": "ewtrfadf",
-      "phone": "653634634",
+      "name": "Dima",
+      "email": "helloworld@mail.ru",
+      "phone": "+741344312433",
       "id": 9
     }
   ]
